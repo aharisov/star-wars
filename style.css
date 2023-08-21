@@ -2,3 +2,11 @@ h1 {
     margin-bottom: 2em;
     text-align: center;
 }
+
+#person-card {
+    padding: 1em 2em;
+    border: 1px solid darkslategrey;
+}
+#person-card a {
+    color: brown;
+}
