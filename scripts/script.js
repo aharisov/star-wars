@@ -5,7 +5,7 @@ const baseUrl = "https://swapi.dev/api/";
 let cnt = 1;
 
 // get person's data from SWAPI
-const getPersonData = ( direction ) => {
+const getPersonData = () => {
     // url to get person data
     const peopleUrl = `people/${cnt}/`;
 
@@ -47,12 +47,14 @@ const getPersonData = ( direction ) => {
     btnPrevDiv.setAttribute("onclick", "getPrevPerson()");
     btnPrevDiv.innerHTML = btnPrevIcon;
 
+    // if counter is 2 and previous button does not exist, create one
     if (cnt == 2 && !btnPrev) {    
         arrowsContainer.appendChild(btnPrevDiv);
         arrowsContainer.classList.add("has-elements");
     } 
     
-    if (cnt == 1) {    // remove on first person
+    // remove previous button if counter is 1
+    if (cnt == 1) {    
         btnPrev.remove();
         arrowsContainer.classList.remove("has-elements");
     }
