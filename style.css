@@ -4,8 +4,12 @@ h1 {
 }
 
 #person-card {
-    padding: 1em 2em;
+    padding: 2em;
     border: 1px solid darkslategrey;
+    font-size: 2em;
+}
+#person-card h2 {
+    margin-top: 0;
 }
 #person-card a {
     color: brown;
