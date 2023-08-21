@@ -1,6 +1,9 @@
 // base url to SWAPI
 const baseUrl = "https://swapi.dev/api/";
 
+// loader 
+const loader = document.querySelector('.loader');
+
 // counter for getting people
 let cnt = 1;
 
@@ -48,8 +51,13 @@ const getPersonData = () => {
     // ajax request to get person data
     $.ajax({
         url: baseUrl + peopleUrl,
+        beforeSend: () => {
+            loader.classList.remove("hidden");
+        },
         success: data => {
             console.log( data );
+
+            loader.classList.add("hidden");
     
             // save person's data
             const personName = data.name;
@@ -80,23 +88,20 @@ const getPrevPerson = () => {
     cnt > 0 ? cnt-- : cnt = 1;
 
     getPersonData("prev");
-    
-    console.log(cnt);
 }
 
-// get person's data from SWAPI
+// get planet's data from SWAPI
 const getPlanetData = () => {
     // get url param 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let id;
+    
     if (urlParams.has('num')) {
         id = urlParams.get('num');    
     } else {
         id = 1;
     }
-
-    console.log(urlParams.get('num'));
 
     // url to get planet data
     const url = `planets/${id}/`;
@@ -108,8 +113,13 @@ const getPlanetData = () => {
     // ajax request to get planet data
     $.ajax({
         url: baseUrl + url,
+        beforeSend: () => {
+            loader.classList.remove("hidden");
+        },
         success: data => {
             console.log( data );
+
+            loader.classList.add("hidden");
 
             // save person's data
             const planetName = data.name;
