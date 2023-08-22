@@ -45,7 +45,7 @@ const getPersonData = () => {
 
     // find html elements for person
     const personNameElement = document.querySelector("#person-card h2");
-    const personHeightElement = document.querySelector("#person-card .height span");
+    const personHeightElement = document.querySelector("#person-card .height");
     const personPlanetElement = document.querySelector("#person-card .planet");
 
     // ajax request to get person data
@@ -61,12 +61,12 @@ const getPersonData = () => {
     
             // save person's data
             const personName = data.name;
-            const personHeight = data.height;
+            const personHeight = `La taille: ${data.height} cm`;
     
             // add person's data to html
             personNameElement.innerHTML = personName;
             personHeightElement.innerHTML = personHeight;
-            personPlanetElement.setAttribute("href", `/planet.html?num=${cnt}`);
+            personPlanetElement.setAttribute("href", `/pages/planet.html?num=${cnt}`);
         }
     });
 
@@ -96,7 +96,7 @@ const getPlanetData = () => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let id;
-    
+
     if (urlParams.has('num')) {
         id = urlParams.get('num');    
     } else {
