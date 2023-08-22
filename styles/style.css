@@ -24,7 +24,7 @@ h1 {
     background-image: url('../images/bg-planet.jpeg');
 }
 
-/* person and planet card */
+/* data card */
 .card {
     max-width: 50%;
     margin: 0 auto;
@@ -43,7 +43,7 @@ h1 {
     color: darkorange;
 }
 
-/* arrows in person's page */
+/* page navigation */
 #arrows {
     display: flex;
     justify-content: space-between;
@@ -73,7 +73,7 @@ h1 {
     margin-right: auto;
 }
 
-/* loader */
+/* page loader */
 .loader {
     position: fixed;
     top: 0;
@@ -85,4 +85,45 @@ h1 {
 }
 .loader.hidden {
     display: none;
+}
+
+/* home page */
+.note {
+    margin-top: -3em;
+    font-size: 2em;
+    text-align: center;
+}
+#people-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90%;
+    margin: 0 auto 2em;
+}
+.people-item {
+    width: 24%;
+    height: 5em;
+    margin: 0 0.5% 1%;
+    padding: 0 1em 2em;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #000;
+}
+.people-item button {
+    cursor: pointer;
+}
+nav {
+    display: flex;
+    justify-content: center;
+}
+nav button {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.loading {
+    min-height: 300px;
+    background: url('../images/loader-new.gif') center 0 no-repeat;
+    background-size: contain;
 }
