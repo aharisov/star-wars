@@ -1,11 +1,24 @@
 // base url to SWAPI
 const baseUrl = "https://swapi.dev/api/";
 
-const getPeople = () => {
+// find people container
+const peopleDiv = document.getElementById('people-list');
+
+// find nav buttons
+const nextBtn = document.getElementById('next-page');
+const prevBtn = document.getElementById('prev-page');
+
+// get people list
+const getPeople = (url) => {
+    
     $.ajax({
-        url: baseUrl + "people/",
+        url: url,
+        beforeSend: () => {
+            peopleDiv.classList.add('loading');
+        },
         success: data => {
-            //console.log( data );
+            //console.log( peopleDiv.innerHTML );      
+            peopleDiv.classList.remove('loading');      
 
             data.results.forEach(personData => {
                 console.log(personData);
@@ -15,7 +28,7 @@ const getPeople = () => {
                 const cardTitle = document.createElement('h3');
                 const cardButton = document.createElement('button');
 
-                // add data to card
+                // add data to card elements
                 cardTitle.innerText = personData.name;
                 cardButton.innerText = 'Détails';
                 cardButton.setAttribute('data-url', personData.url);
@@ -25,10 +38,38 @@ const getPeople = () => {
                 cardDiv.append(cardTitle, cardButton);
 
                 // add cards to container
-                document.getElementById('people-list').append(cardDiv);
+                peopleDiv.append(cardDiv);
             });
+
+            // add prev and next links to nav buttons
+            if (data.next) {
+                nextBtn.setAttribute('data-url', data.next);
+                nextBtn.removeAttribute('disabled');
+            } else {
+                nextBtn.setAttribute('disabled', 'disabled');
+            }
+        
+            if (data.previous) {
+                prevBtn.setAttribute('data-url', data.previous);
+                prevBtn.removeAttribute('disabled');
+            } else {
+                prevBtn.setAttribute('disabled', 'disabled');
+            }
         }
     });
 }
 
-getPeople();
+// add prev and next links to nav buttons
+nextBtn.addEventListener('click', function() {
+    peopleDiv.innerHTML = '';
+    
+    getPeople(this.getAttribute('data-url'));
+})
+
+prevBtn.addEventListener('click', function() {
+    peopleDiv.innerHTML = '';
+    
+    getPeople(this.getAttribute('data-url'));
+})
+
+getPeople(baseUrl + 'people/');
