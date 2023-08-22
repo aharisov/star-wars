@@ -93,21 +93,25 @@ h1 {
     font-size: 2em;
     text-align: center;
 }
-#hero-list {
+#people-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 90%;
     margin: 0 auto;
-    background-color: rgba(247, 199, 6, 0.4);
 }
-.hero-item {
-    width: 32%;
+.people-item {
+    width: 24%;
     height: 5em;
-    background: darkslateblue;
-    border-radius: 20px;
-    font-size: 1.5;
-    color: #fff;
+    margin: 0 0.5% 1%;
+    padding: 0 1em 2em;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #000;
+}
+.people-item button {
+    cursor: pointer;
 }
 nav {
     display: flex;
