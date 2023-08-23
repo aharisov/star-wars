@@ -122,8 +122,70 @@ nav button {
     cursor: pointer;
 }
 
-.loading {
-    min-height: 300px;
+.loader-home {
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
     background: url('../images/loader-new.gif') center 0 no-repeat;
     background-size: contain;
+}
+.loader-home.hidden {
+    display: none;
+}
+
+/* popup for data */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 5em;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#popup.active {
+    display: flex;
+}
+#popup-inner {
+    position: relative;
+    width: 30%;
+    min-height: 500px;
+    max-height: 70%;
+    padding: 4em;
+    background-color: #fff;
+    color: #000;
+    overflow: auto;
+}
+#popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+#popup-close svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#popup-props ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 1.5em;
+}
+#popup-props ul li.has-links {
+    display: flex;
+    flex-direction: column;
+}
+#popup-props ul span {
+    font-weight: bold;
 }
