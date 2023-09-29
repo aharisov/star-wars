@@ -1,29 +1,11 @@
-# README #
+# Testing The Star Wars API
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Objective of this educational project is to test interaction with API using JQuery.
 
-### What is this repository for? ###
+The project represents the page of StarWars characters with buttons to show their detail info. There are also previous and next buttons to get next 10 characters or previous 10 characters.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+When you click on the buttons, a request is made to the API and the data is changed on the page or in a pop-up window with details.
 
-### How do I get set up? ###
+## Tech Stack
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+**Client:** HTML5, CSS, JQuery, JavaScript, API
